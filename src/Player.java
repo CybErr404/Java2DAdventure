@@ -10,8 +10,6 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
 
-    //public int hasKey = 0;
-
     int standCounter;
 
     public Player(GamePanel gp, KeyHandler keyHandler) {
