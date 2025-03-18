@@ -18,6 +18,12 @@ public class KeyHandler implements KeyListener {
     //CAMERA CHANGE - EXTRA ASSIGNMENT
     boolean changeCamera = false;
 
+    GamePanel gp;
+
+    public KeyHandler(GamePanel gp) {
+        this.gp = gp;
+    }
+
     /**
      * Method that determines which key has been typed.
      * @param e the event to be processed
@@ -51,6 +57,15 @@ public class KeyHandler implements KeyListener {
         //Checks to see if the key pressed was D.
         if(code == KeyEvent.VK_D) {
             rightPressed = true;
+        }
+
+        if(code == KeyEvent.VK_P) {
+            if(gp.gameState == gp.playState) {
+                gp.gameState = gp.pauseState;
+            }
+            else if(gp.gameState == gp.pauseState) {
+                gp.gameState = gp.playState;
+            }
         }
 
         if(code == KeyEvent.VK_T) {
