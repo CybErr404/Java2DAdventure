@@ -73,12 +73,12 @@ public class UI {
         else {
             g2.setFont(arial_40);
             g2.setColor(Color.white);
-            g2.drawImage(keyImage, gp.tileSize / 2, gp.tileSize / 2, gp.tileSize, gp.tileSize, null);
-            g2.drawString("x " + gp.player.hasKey, 74, 65);
+            //g2.drawImage(keyImage, gp.tileSize / 2, gp.tileSize / 2, gp.tileSize, gp.tileSize, null);
+            //g2.drawString("x " + gp.player.hasKey, 74, 65);
 
             //TIME
-            playTime += (double) 1 / 60;
-            g2.drawString("Time: " + dFormat.format(playTime), gp.tileSize * 11, 65);
+            //playTime += (double) 1 / 60;
+            //g2.drawString("Time: " + dFormat.format(playTime), gp.tileSize * 11, 65);
 
             //MESSAGE
             if(messageOn) {
