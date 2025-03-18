@@ -84,42 +84,6 @@ public class GamePanel extends JPanel implements Runnable {
         gameThread.start();
     }
 
-    //Game loop method. SLEEP VERSION.
-//    @Override
-//    public void run() {
-//
-//        double drawInterval = 1000000000/FPS; //0.01666 seconds
-//        double nextDrawTime = System.nanoTime() + drawInterval;
-//
-//        while(gameThread != null) {
-//            //Example code commented out that shows in console game is running.
-//            //System.out.println("The game loop is running.");
-//
-//
-//            //1 UPDATE: Update information such as character positions.
-//            update();
-//
-//            //2 DRAW: Draw the screen with the updated information.
-//            repaint();
-//
-//            try {
-//                double remainingTime = nextDrawTime - System.nanoTime();
-//                remainingTime = remainingTime / 1000000;
-//
-//                if(remainingTime < 0) {
-//                    remainingTime = 0;
-//                }
-//
-//                Thread.sleep((long) remainingTime);
-//
-//                nextDrawTime += drawInterval;
-//
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//    }
-
     /**
      * Game loop run method using delta/accumulator game loop setup.
      * This method is used over the sleep method due to the possibility of inaccuracies with timing.
