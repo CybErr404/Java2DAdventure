@@ -33,7 +33,7 @@ public class GamePanel extends JPanel implements Runnable {
     TileManager tileManager = new TileManager(this);
 
     //Creates new KeyHandler object for key mapping.
-    KeyHandler keyHandler = new KeyHandler();
+    KeyHandler keyHandler = new KeyHandler(this);
     //Helps represent concept of time - keeps game running in real time until closed.
     Sound soundEffects = new Sound();
     Sound music = new Sound();
@@ -49,6 +49,11 @@ public class GamePanel extends JPanel implements Runnable {
     public AssetSetter assetSetter = new AssetSetter(this);
 
     CollisionChecker collisionChecker = new CollisionChecker(this);
+
+    //GAME STATE
+    public int gameState;
+    public final int playState = 1;
+    public final int pauseState = 2;
 
     //Constructor that sets the main attributes of the game panel.
     public GamePanel() {
@@ -68,6 +73,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void setUpGame() {
         assetSetter.setObject();
         playMusic(0);
+        gameState = playState;
     }
 
     //Method that starts a specific game thread.
@@ -172,7 +178,12 @@ public class GamePanel extends JPanel implements Runnable {
      * many frames per second the game is set to when running).
      */
     public void update() {
-        player.update();
+        if(gameState == playState) {
+            player.update();
+        }
+        if(gameState == pauseState) {
+            //Nothing. Don't update player information when game is paused.
+        }
     }
 
     /**
